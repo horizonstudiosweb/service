@@ -1,0 +1,567 @@
+:root {
+  --bg: #0d1710;
+  --bg-soft: #132418;
+  --green: #244f2c;
+  --green-light: #3c7a48;
+  --white: #ffffff;
+  --text: #e8eee9;
+  --muted: #9faea3;
+  --card: rgba(255, 255, 255, 0.065);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --shadow: rgba(0, 0, 0, 0.35);
+
+  --active: #52d273;
+  --maintenance: #f4b84a;
+  --closed: #ef4b4b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+.page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(61, 122, 72, 0.28), transparent 35%),
+    radial-gradient(circle at 80% 40%, rgba(255, 255, 255, 0.07), transparent 28%),
+    linear-gradient(135deg, #0b130d 0%, #142719 48%, #0c150f 100%);
+}
+
+.page-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+.navbar {
+  position: fixed;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1120px, calc(100% - 36px));
+  height: 72px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  background: rgba(9, 17, 11, 0.72);
+  backdrop-filter: blur(22px);
+  box-shadow: 0 20px 50px var(--shadow);
+}
+
+.nav-logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: var(--white);
+  padding-left: 14px;
+}
+
+.nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-link {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 12px 24px;
+  border-radius: 999px;
+  color: var(--muted);
+  background: transparent;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  transition: 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-link.active {
+  color: #0b140e;
+  background: var(--white);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.12);
+}
+
+main {
+  padding-top: 130px;
+}
+
+.tab-section {
+  display: none;
+  min-height: calc(100vh - 130px);
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.tab-section.active {
+  display: block;
+  animation: tabFade 0.55s ease forwards;
+}
+
+@keyframes tabFade {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero {
+  width: min(1120px, calc(100% - 36px));
+  margin: 0 auto;
+  min-height: 680px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.eyebrow {
+  color: var(--green-light);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hero h1,
+.subpage h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(3rem, 7vw, 6.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.07em;
+  font-weight: 900;
+  color: var(--white);
+}
+
+.hero h1 span {
+  display: block;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.hero-text,
+.subpage-text {
+  max-width: 620px;
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+.hero-actions {
+  margin-top: 36px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn,
+.support-btn {
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  padding: 15px 24px;
+  border-radius: 999px;
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  transition: 0.3s ease;
+}
+
+.primary-btn {
+  background: var(--white);
+  color: #0c140f;
+}
+
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  border: 1px solid var(--card-border);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover,
+.support-btn:hover {
+  transform: translateY(-3px);
+}
+
+.hero-card {
+  position: relative;
+  height: 420px;
+  border-radius: 38px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04)),
+    linear-gradient(135deg, #244f2c, #132418);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 35px 80px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 42px;
+  overflow: hidden;
+}
+
+.hero-card::before {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  top: -90px;
+  right: -80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  filter: blur(10px);
+}
+
+.brand-word {
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  color: var(--white);
+  font-size: clamp(2.7rem, 6vw, 5.6rem);
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  text-shadow: 0 16px 30px rgba(0, 0, 0, 0.25);
+}
+
+.brand-word span,
+.footer span,
+.project-card.greddo span {
+  color: var(--white);
+}
+
+.hero-card p {
+  position: relative;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+}
+
+.content-section {
+  width: min(1120px, calc(100% - 36px));
+  margin: 0 auto 120px;
+}
+
+.section-header {
+  margin-bottom: 34px;
+}
+
+.section-header h2 {
+  font-family: "Montserrat", sans-serif;
+  max-width: 760px;
+  color: var(--white);
+  font-size: clamp(2rem, 4vw, 4rem);
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.card-grid,
+.project-grid,
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.info-card,
+.project-card,
+.status-card,
+.support-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  border-radius: 30px;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.18);
+  transition: 0.35s ease;
+}
+
+.info-card,
+.project-card,
+.status-card {
+  min-height: 230px;
+  padding: 30px;
+}
+
+.info-card:hover,
+.project-card:hover,
+.status-card:hover,
+.support-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.card-light {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  top: -35px;
+  right: -35px;
+  border-radius: 50%;
+  background: rgba(82, 210, 115, 0.18);
+  filter: blur(6px);
+}
+
+.info-card h3,
+.project-card h3,
+.status-card h3,
+.support-card h2 {
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.45rem;
+  font-weight: 850;
+  letter-spacing: -0.04em;
+  color: var(--white);
+}
+
+.info-card p,
+.project-card p,
+.status-card p,
+.support-card p {
+  position: relative;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-top: 14px;
+}
+
+.project-card.greddo h3 {
+  font-size: 1.7rem;
+  letter-spacing: -0.07em;
+}
+
+.project-card.greddo small {
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--text);
+}
+
+.subpage {
+  width: min(1120px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 110px 0 130px;
+}
+
+.status-grid {
+  margin-top: 46px;
+}
+
+.status-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.status-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.status-indicator {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  margin-top: 6px;
+  background: var(--muted);
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+}
+
+.status-indicator.active {
+  background: var(--active);
+  box-shadow: 0 0 22px rgba(82, 210, 115, 0.9);
+}
+
+.status-indicator.maintenance {
+  background: var(--maintenance);
+  box-shadow: 0 0 22px rgba(244, 184, 74, 0.85);
+}
+
+.status-indicator.closed {
+  background: var(--closed);
+  box-shadow: 0 0 22px rgba(239, 75, 75, 0.85);
+}
+
+.status-label {
+  width: fit-content;
+  margin-top: 24px;
+  padding: 9px 13px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+}
+
+.support-card {
+  margin-top: 46px;
+  padding: 34px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 26px;
+}
+
+.support-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(82, 210, 115, 0.32), rgba(255, 255, 255, 0.08));
+  border: 1px solid var(--card-border);
+  display: grid;
+  place-items: center;
+}
+
+.support-icon span {
+  width: 26px;
+  height: 26px;
+  border: 3px solid var(--white);
+  border-radius: 8px 8px 8px 2px;
+  display: block;
+}
+
+.support-btn {
+  color: #0c140f;
+  background: var(--white);
+  white-space: nowrap;
+}
+
+.support-grid {
+  margin-top: 20px;
+}
+
+.footer {
+  width: min(1120px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 46px 0 56px;
+  border-top: 1px solid var(--card-border);
+  display: flex;
+  justify-content: center;
+  gap: 34px;
+  flex-wrap: wrap;
+}
+
+.footer p {
+  font-family: "Montserrat", sans-serif;
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    height: auto;
+    padding: 14px;
+    flex-direction: column;
+    gap: 14px;
+    border-radius: 28px;
+  }
+
+  .nav-logo {
+    padding-left: 0;
+  }
+
+  .nav-links {
+    position: static;
+    transform: none;
+  }
+
+  main {
+    padding-top: 165px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 70px 0;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card {
+    height: 320px;
+  }
+
+  .card-grid,
+  .project-grid,
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .support-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nav-link {
+    padding: 11px 14px;
+    font-size: 0.9rem;
+  }
+
+  .hero h1,
+  .subpage h1 {
+    font-size: 3rem;
+  }
+
+  .hero-card {
+    padding: 28px;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+}

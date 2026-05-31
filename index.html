@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horizon Studios</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="page-bg"></div>
+
+  <header class="navbar">
+    <div class="nav-logo">HORIZON STUDIOS</div>
+
+    <nav class="nav-links">
+      <button class="nav-link active" data-tab="home">Home</button>
+      <button class="nav-link" data-tab="status">Status</button>
+      <button class="nav-link" data-tab="support">Support</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="tab-section active">
+      <div class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">Roblox Game Development Studio</p>
+          <h1>
+            Building clean, immersive and reliable
+            <span>Roblox experiences.</span>
+          </h1>
+          <p class="hero-text">
+            Horizon Studios creates, manages and improves Roblox games with a focus on design,
+            stability and long-term player experience.
+          </p>
+
+          <div class="hero-actions">
+            <button class="primary-btn" data-tab-open="status">View Status</button>
+            <button class="secondary-btn" data-tab-open="support">Get Support</button>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <p class="eyebrow">Official announcement</p>
+          <div class="brand-word">GREDDO<span>.</span></div>
+          <p>germany is now officially part of Horizon Studios.</p>
+        </div>
+      </div>
+
+      <section class="content-section">
+        <div class="section-header">
+          <p class="eyebrow">What we do</p>
+          <h2>Game creation, management and live operations.</h2>
+        </div>
+
+        <div class="card-grid">
+          <article class="info-card">
+            <div class="card-light"></div>
+            <h3>Game Development</h3>
+            <p>
+              We build Roblox games with modern systems, structured gameplay and clean user interfaces.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <div class="card-light"></div>
+            <h3>Project Management</h3>
+            <p>
+              We manage updates, maintenance, quality control and the overall direction of our projects.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <div class="card-light"></div>
+            <h3>Player Experience</h3>
+            <p>
+              We focus on smooth gameplay, reliable systems and clear communication for our communities.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="section-header">
+          <p class="eyebrow">Our projects</p>
+          <h2>Three studio brands under one vision.</h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <h3>Horizon Resort</h3>
+            <p>
+              Horizon Resort is a modern Roblox resort experience designed to create a relaxed
+              and realistic vacation atmosphere. The project focuses on modern rooms, star-level
+              comfort, spa areas, exclusive lounges and a premium resort feeling in cooperation
+              with AVIA Assistance.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <h3>Horizon Hotels</h3>
+            <p>
+              Horizon Hotels is planned as a modern BNB-inspired hotel experience with a clean
+              four-star hotel style. The concept includes simple modern rooms, an indoor pool,
+              a spa area, shops, breakfast areas and restaurant spaces for a complete hotel stay.
+            </p>
+          </article>
+
+          <article class="project-card greddo">
+            <h3>GREDDO<span>.</span> <small>germany</small></h3>
+            <p>
+              GREDDO germany is a fast-food brand project and currently operates as one main
+              location. Players can enjoy burgers, sweet snacks and a tasty modern food-service
+              atmosphere with a clean and recognizable brand vibe.
+            </p>
+          </article>
+        </div>
+      </section>
+    </section>
+
+    <section id="status" class="tab-section">
+      <div class="subpage">
+        <p class="eyebrow">Live service overview</p>
+        <h1>Status</h1>
+        <p class="subpage-text">
+          Check the current operational state of Horizon Studios projects.
+        </p>
+
+        <div id="statusCards" class="status-grid"></div>
+      </div>
+    </section>
+
+    <section id="support" class="tab-section">
+      <div class="subpage">
+        <p class="eyebrow">Need help?</p>
+        <h1>Horizon Studios Support</h1>
+        <p class="subpage-text">
+          Our support area is made for project-related questions, reports and general assistance.
+        </p>
+
+        <div class="support-card">
+          <div class="support-icon">
+            <span></span>
+          </div>
+
+          <div>
+            <h2>Contact Support</h2>
+            <p>
+              Reach out to the Horizon Studios team if you need help with one of our Roblox projects.
+            </p>
+          </div>
+
+          <a class="support-btn" href="https://discord.gg/p7855SdNe7" target="_blank" rel="noopener noreferrer">
+            Open Support
+          </a>
+        </div>
+
+        <div class="card-grid support-grid">
+          <article class="info-card">
+            <div class="card-light"></div>
+            <h3>Reports</h3>
+            <p>Send us reports about bugs, issues or unexpected project behavior.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="card-light"></div>
+            <h3>Questions</h3>
+            <p>Ask questions about Horizon Studios, our games or current project availability.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="card-light"></div>
+            <h3>Project Help</h3>
+            <p>Get help related to Horizon Resort, Horizon Hotels or GREDDO germany.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Horizon Studios</p>
+    <p>AVIA Systems</p>
+    <p>GREDDO<span>.</span> germany</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
