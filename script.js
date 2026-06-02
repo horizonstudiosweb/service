@@ -1,9 +1,9 @@
 const projectStatuses = [
   {
     name: "Horizon Resort",
-    status: "maintenance",
-    label: "Under Maintenance",
-    description: "Horizon Resort is currently under maintenance while improvements are being made."
+    status: "active",
+    label: "Operational",
+    description: "Horizon Resort is active and currently running without known disruptions."
   },
   {
     name: "Horizon Hotels",
